@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: posturecoach-api
+    env: docker
+    plan: starter
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false
+      - key: AUTO_CREATE_TABLES
+        value: "false"
