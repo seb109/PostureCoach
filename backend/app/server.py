@@ -75,6 +75,10 @@ def create_app() -> FastAPI:
     async def _shutdown() -> None:
         logger.info("PostureCoach API shutting down — flushing session log.")
         shutdown_posture_service()
+    
+    @app.get("/")
+    def root():
+        return {"message": "PostureCoach API is running","docs": "/docs"}
 
     return app
 
